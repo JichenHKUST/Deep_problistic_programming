@@ -4,6 +4,7 @@ References
 ----------
 http://edwardlib.org/tutorials/decoder
 http://edwardlib.org/tutorials/inference-networks
+simple demo of using vae for MNIST
 """
 from __future__ import absolute_import
 from __future__ import division
