@@ -128,7 +128,6 @@ def language_model_gen(batch_size):
   xs = tf.cast(tf.stack(xs, 1), tf.int32)
   return xs
 
-
 ed.set_seed(42)
 
 # DATA

@@ -28,7 +28,7 @@ qb_0 = Normal(loc=tf.Variable(tf.zeros(2)),
 qb_1 = Normal(loc=tf.Variable(tf.zeros(1)),
               scale=tf.nn.softplus(tf.Variable(tf.zeros(1))))
 
-# K-L divergence
+# K-L divergence estimation
 inference = ed.KLqp({W_0: qW_0, b_0: qb_0,
                      W_1: qW_1, b_1: qb_1}, data={y: y_train})
 inference.run(n_iter=1000, logdir='log/Bayesian_nn')
