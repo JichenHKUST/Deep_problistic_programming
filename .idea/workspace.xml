@@ -16,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Bayesian_nn.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Bayesian_nn.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bayesian_nn.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="551">
@@ -40,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shared-LVM.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shared-LVM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shared-LVM.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
@@ -314,7 +314,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="32" y="23" width="1412" height="877" extended-state="6" />
+    <frame x="32" y="23" width="1412" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16788322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -615,13 +615,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bayesian_nn.py">
+    <entry file="file://$PROJECT_DIR$/Shared-LVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -635,11 +633,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Shared-LVM.py">
+    <entry file="file://$PROJECT_DIR$/Bayesian_nn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="551">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
