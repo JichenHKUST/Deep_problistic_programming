@@ -31,8 +31,8 @@
       <file leaf-file-name="Beta-Bernoulli.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Beta-Bernoulli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="651">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#93#131#0" expanded="true" />
               </folding>
@@ -43,8 +43,8 @@
       <file leaf-file-name="Shared-LVM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Shared-LVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="1" selection-end-column="60" />
+            <state relative-caret-position="76">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,7 +83,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="28" />
+    <option name="x" value="32" />
     <option name="y" value="23" />
     <option name="width" value="1412" />
     <option name="height" value="877" />
@@ -314,7 +314,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="28" y="23" width="1412" height="877" extended-state="6" />
+    <frame x="32" y="23" width="1412" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16788322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -627,8 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Beta-Bernoulli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="651">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#93#131#0" expanded="true" />
           </folding>
@@ -637,8 +637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Shared-LVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="1" selection-end-column="60" />
+        <state relative-caret-position="76">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
