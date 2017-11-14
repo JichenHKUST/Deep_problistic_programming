@@ -21,6 +21,7 @@ from __future__ import print_function
 import edward as ed
 import numpy as np
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 from edward.models import MultivariateNormalTriL, Normal, Poisson
 from edward.util import rbf
@@ -63,3 +64,10 @@ qf = Normal(loc=tf.Variable(tf.random_normal([N, V])),
 
 inference = ed.KLqp({f: qf}, data={x: x_data, x_ph: x_data})
 inference.run(n_iter=5000)
+
+# Evaluate
+x_post = ed.copy(x, {f: qf})
+x_post1 = x_post.eval()
+plt.plot(x_post1[:,0])
+plt.figure()
+plt.plot(x_data[:,0])
