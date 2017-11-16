@@ -63,7 +63,7 @@ qf = Normal(loc=tf.Variable(tf.random_normal([N, V])),
             scale=tf.nn.softplus(tf.Variable(tf.random_normal([N, V]))))
 
 inference = ed.KLqp({f: qf}, data={x: x_data, x_ph: x_data})
-inference.run(n_iter=5000)
+inference.run(n_iter=50)
 
 # Evaluate
 x_post = ed.copy(x, {f: qf})

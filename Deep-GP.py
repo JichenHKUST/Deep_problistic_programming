@@ -3,38 +3,42 @@ from __future__ import division
 from __future__ import print_function
 
 import edward as ed
-import numpy as np
 import tensorflow as tf
-#import matplotlib.pyplot as plt
+from data import make_pinwheel
 
-from edward.models import Bernoulli, MultivariateNormalTriL, Normal
+import matplotlib.pyplot as plt
+from edward.models import MultivariateNormalTriL, Normal
 from edward.util import rbf
 
-# Data
-def build_toy_dataset(N):
-  # step function
-  x = 4 * np.random.rand(N)-2
-  noise = np.random.normal(0, 0.01, N)
-  y = np.sign(x) + noise
 
-  return y
+data = make_pinwheel(radial_std=0.3, tangential_std=0.05, num_classes=5,
+                         num_per_class=30, rate=0.4)
+N = data.shape[0]
+D = 2 # number of features
+K = 2 # number of latent dimensions
 
-N = 1000
-Q = 1 # input space feature
-H1 = 1
-D = 1
+# Model: deep/shallow GP (generative model)
+X = Normal(loc=tf.zeros([N,K]),scale=tf.ones([N,K]))
 
-# Model: deep/shallow GP
-X = Normal(loc=tf.zeros([N,Q]),scale=tf.ones([N,Q]))
-f = MultivariateNormalTriL(loc=tf.zeros(N,D), scale_tril=tf.cholesky(rbf(X)))
-#f = MultivariateNormalTriL(loc=tf.zeros(N,), scale_tril=tf.cholesky(rbf(h1)))
-y = Bernoulli(logits=f)
+Kernal = tf.stack([rbf(tf.reshape(xn, [K, 1])) + tf.diag([1e-6, 1e-6])
+              for xn in tf.unstack(X)])
 
-# inference
-qX = Normal(loc=tf.Variable(tf.random_normal([N,Q])),
-            scale=tf.nn.softplus(tf.Variable(tf.random_normal([N,Q]))))
-qf = Normal(loc=tf.Variable(tf.random_normal([N,D])),
-            scale=tf.nn.softplus(tf.Variable(tf.random_normal([N,D]))))
+Y = MultivariateNormalTriL(loc=tf.zeros([N,D]), scale_tril=tf.cholesky(Kernal))
 
-inference = ed.KLqp({f: qf, X:qX}, data={y: y})
+# Inference (recongnition model)
+qX = Normal(loc=tf.Variable(tf.random_normal([N,K])),
+            scale=tf.nn.softplus(tf.Variable(tf.random_normal([N,K]))))
+
+
+inference = ed.KLqp({X: qX}, data={Y: data})
 inference.run(n_iter=5000)
+
+# Evaluate
+sess = ed.get_session()
+qX_mean, qX_var = sess.run([qX.mean(), qX.variance()])
+plt.scatter(qX_mean[:,0], qX_mean[:,1])
+
+Y_post = ed.copy(Y, {X: qX})
+Y_post = Y_post.eval()
+plt.scatter(Y_post[:,0], Y_post[:,1])
+plt.scatter(data[:,0], data[:,1]) # observation
