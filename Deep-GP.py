@@ -23,15 +23,14 @@ X = Normal(loc=tf.zeros([N,K]),scale=tf.ones([N,K]))
 Kernal = tf.stack([rbf(tf.reshape(xn, [K, 1])) + tf.diag([1e-6, 1e-6])
               for xn in tf.unstack(X)])
 
-Y = MultivariateNormalTriL(loc=tf.zeros([N,D]), scale_tril=tf.cholesky(Kernal))
+Y = MultivariateNormalTriL(loc=tf.zeros([D,N]), scale_tril=tf.cholesky(Kernal))
 
 # Inference (recongnition model)
 qX = Normal(loc=tf.Variable(tf.random_normal([N,K])),
             scale=tf.nn.softplus(tf.Variable(tf.random_normal([N,K]))))
 
-
-inference = ed.KLqp({X: qX}, data={Y: data})
-inference.run(n_iter=5000)
+inference = ed.KLqp({X: qX}, data={Y: data.transpose()})
+inference.run(n_iter=1000)
 
 # Evaluate
 sess = ed.get_session()
