@@ -20,10 +20,9 @@ K = 2 # number of latent dimensions
 # Model: deep/shallow GP (generative model)
 X = Normal(loc=tf.zeros([N,K]),scale=tf.ones([N,K]))
 
-Kernal = tf.stack([rbf(tf.reshape(xn, [K, 1])) + tf.diag([1e-6, 1e-6])
-              for xn in tf.unstack(X)])
-
-Y = MultivariateNormalTriL(loc=tf.zeros([D,N]), scale_tril=tf.cholesky(Kernal))
+Kernal = rbf(X)+ tf.eye(N) * 1e-6
+cholesky = tf.tile(tf.reshape(tf.cholesky(Kernal),[1,N,N]),[D,1,1])
+Y = MultivariateNormalTriL(loc=tf.zeros([D,N]), scale_tril=cholesky)
 
 # Inference (recongnition model)
 qX = Normal(loc=tf.Variable(tf.random_normal([N,K])),
